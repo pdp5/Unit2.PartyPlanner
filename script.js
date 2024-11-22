@@ -49,7 +49,15 @@ function display_List() {
     event_description.textContent = `Description: ${event.description}`;
 
     const event_date = document.createElement("div");
-    event_date.textContent = `Date: ${event.date}`;
+
+    const event_date_obj = new Date(event.date);
+    const display_date = event_date_obj.toDateString();
+    const display_time = event_date_obj.toLocaleTimeString("en-us", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    event_date.textContent = `Date: ${display_date}, ${display_time}`;
 
     const event_location = document.createElement("div");
     event_location.textContent = `Location: ${event.location}`;
@@ -77,7 +85,18 @@ async function addEvent(event) {
   //   console.log("event: ", events);
   //   display_List();
 
-  let new_date = new Date(date.value).toISOString();
+  let date_Object = new Date(date.value);
+
+  const format_date = date_Object.toISOString();
+
+  //   const formatTime = date_Object.toLocaleTimeString("en-us", {
+  //     hour: "2-digit",
+  //     minute: "2-digit",
+  //     hour12: true,
+  //   });
+  //   const format_date = date_Object.toISOString().split("T")[0];
+
+  //   const combine_date_time = `${format_date}, ${formatTime}`;
 
   try {
     const response = await fetch(API_URL, {
@@ -86,7 +105,7 @@ async function addEvent(event) {
       body: JSON.stringify({
         name: name.value,
         description: description.value,
-        date: new_date,
+        date: format_date,
         location: address.value,
       }),
     });
