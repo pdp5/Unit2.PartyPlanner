@@ -1,0 +1,9 @@
+h1 {
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-self: center;
+}
