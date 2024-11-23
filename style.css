@@ -1,9 +1,66 @@
+body {
+  font-family: cursive;
+  background-color: cadetblue;
+}
 h1 {
   text-align: center;
+  font-size: 3rem;
+  text-decoration: underline;
 }
 form {
   display: flex;
   flex-direction: column;
   width: 50%;
   justify-self: center;
+  border: double black;
+  padding: 20px;
+  /* background-color: rgb(157, 183, 184); */
+  background-color: rgb(202, 221, 247);
+}
+#event-name,
+#Description,
+#Date,
+#address {
+  font-size: larger;
+  margin-bottom: 5px;
+}
+#name,
+#date,
+#location {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: large;
+  border: solid 1px black;
+}
+#description {
+  max-width: 100%;
+}
+#name:hover,
+#description:hover,
+#date:hover,
+#location:hover {
+  border: double black;
+  transition: 0.2s ease;
+}
+#submit-btn {
+  align-self: center;
+  font-size: larger;
+  transition: transform 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
+}
+.delete-btn {
+  transition: transform 0.3s ease;
+  border-radius: 5px;
+  float: right;
+}
+#submit-btn:hover,
+.delete-btn:hover {
+  transform: translateX(-5%) scaleY(1.1);
+  cursor: pointer;
+  background-color: aqua;
+}
+.event-info-section {
+  background-color: bisque;
+  border-radius: 10px;
 }

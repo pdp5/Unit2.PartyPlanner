@@ -35,17 +35,21 @@ function display_List() {
     // div.style.display = "flex";
     // div.style.flexDirection = "column";
     div.style.justifySelf = "center";
+    div.classList.add("event-info-section");
 
     delete_btn = document.createElement("button");
     delete_btn.textContent = "Delete";
     delete_btn.style.fontSize = "20px";
     delete_btn.style.marginBottom = "10px";
+    delete_btn.classList.add("delete-btn");
     delete_btn.addEventListener("click", () => delete_event(event.id));
 
     const event_name = document.createElement("div");
+    event_name.style.fontSize = "1.5rem";
     event_name.textContent = `Name: ${event.name}`;
 
     const event_description = document.createElement("div");
+    event_description.style.fontSize = "large";
     event_description.textContent = `Description: ${event.description}`;
 
     const event_date = document.createElement("div");
@@ -57,9 +61,11 @@ function display_List() {
       minute: "2-digit",
       hour12: true,
     });
+    event_date.style.fontSize = "large";
     event_date.textContent = `Date: ${display_date}, ${display_time}`;
 
     const event_location = document.createElement("div");
+    event_location.style.fontSize = "large";
     event_location.textContent = `Location: ${event.location}`;
 
     // console.log(event_name);
